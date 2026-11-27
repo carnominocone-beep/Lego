@@ -141,6 +141,8 @@ Requirements: an arm64 Android phone with Android 9 or newer and Vulkan 1.1 (mos
 ## Troubleshooting
 `Android/data/com.tj.legomarvel/files/log.txt` is rewritten on every launch, and `files/last_exit.txt` records why the app last closed, so please attach both if reporting a problem.
 
+If the picture has stretched geometry or large black polygons, first make sure the game folder contains every `GAME*.DAT` file from the same supported PC installation. This port requires the complete data set; in particular, the supported LEGO Marvel build expects `GAME11.DAT`. A missing archive can make game assets incomplete even when the title screen appears. Also verify the executable SHA-1 above; other releases are untested.
+
 These empty files in `Android/data/com.tj.legomarvel/files/save/` change how the port behaves (delete one to undo it):
 | File | Effect |
 |---|---|

@@ -330,7 +330,13 @@ static void check_game_dir(void) {
                  "LEGO Marvel Super Heroes install folder (" GAME_EXE ", the GAME*.DAT files and the "
                  "redist folder) into it.", g_game_dir, why, strerror(e));
     }
-    static const char *const k_need[] = {GAME_EXE, DLL_D3DX9, DLL_EXTRA, NULL};
+    static const char *const k_need[] = {
+        GAME_EXE, DLL_D3DX9, DLL_EXTRA,
+#ifdef GAME_MARVEL
+        "GAME11.DAT",
+#endif
+        NULL
+    };
     char missing[1024] = "";
     for (int i = 0; k_need[i]; i++)
         if (k_need[i][0] && !file_present(k_need[i])) {
